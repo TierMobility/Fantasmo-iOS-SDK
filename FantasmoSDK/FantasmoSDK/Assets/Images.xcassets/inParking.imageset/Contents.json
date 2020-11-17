@@ -6,12 +6,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "imageInParking-1.jpg",
+      "filename" : "imageInParking@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "imageInParking-2.jpg",
+      "filename" : "imageInParking@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

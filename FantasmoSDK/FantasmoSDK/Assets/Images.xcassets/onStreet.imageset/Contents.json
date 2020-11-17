@@ -6,12 +6,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "imageOnStreet-1.jpg",
+      "filename" : "imageOnStreet@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "imageOnStreet-2.jpg",
+      "filename" : "imageOnStreet@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

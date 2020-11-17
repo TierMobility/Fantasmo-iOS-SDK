@@ -23,14 +23,15 @@ open class MockData {
                                                isValid: Bool) -> (params: [String : Any]?, image: Data?) {
         var params: [String: Any]?
         var jpegData: Data?
+        let bundle = Bundle(for: self)
 
         switch zone {
         case .parking:
             params = MockData.parkingMockParameters
-            jpegData = UIImage(named: "inParking")?.toJpeg(compressionQuality: FMUtility.Constants.JpegCompressionRatio)
+            jpegData = UIImage(named: "inParking", in: bundle, compatibleWith: nil)?.toJpeg(compressionQuality: FMUtility.Constants.JpegCompressionRatio)
         default:
             params = MockData.streetMockParameters
-            jpegData = UIImage(named: "onStreet")?.toJpeg(compressionQuality: FMUtility.Constants.JpegCompressionRatio)
+            jpegData = UIImage(named: "onStreet", in: bundle, compatibleWith: nil)?.toJpeg(compressionQuality: FMUtility.Constants.JpegCompressionRatio)
         }
 
         guard jpegData != nil else {
