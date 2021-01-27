@@ -86,21 +86,6 @@ extension CLLocationManager : CLLocationManagerDelegate {
     }
     
     /**
-     invoked when authorization status change.  Required to know status has been changed.
-     
-     @param manager Currnet location manager.
-     */
-    @available(iOS 14.0, *)
-    public func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        guard let delegate = objc_getAssociatedObject(self, &AssociatedKeys.delegateState) as? CLLocationManagerDelegate else {
-            debugPrint("CLLocationManager:swizzle didChangeAuthorization delegate not available")
-            return
-        }
-        delegate.locationManagerDidChangeAuthorization?(manager)
-        debugPrint("CLLocationManager:swizzle didChangeAuthorization")
-    }
-    
-    /**
      Invoked when a new heading is available.
      
      @param manager Currnet location manager.
@@ -162,40 +147,6 @@ extension CLLocationManager : CLLocationManagerDelegate {
         }
         delegate.locationManager?(manager, rangingBeaconsDidFailFor: region, withError: error)
         debugPrint("CLLocationManager:swizzle rangingBeaconsDidFailFor")
-    }
-    
-    /**
-     Invoked when beacon satisfying the constraint was detected.
-     
-     @param manager Currnet location manager.
-     @param beacons List of beacons which are in range.
-     @param beaconConstraint Constraint of beacon.
-     */
-    @available(iOS 13.0, *)
-    public func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
-        guard let delegate = objc_getAssociatedObject(self, &AssociatedKeys.delegateState) as? CLLocationManagerDelegate else {
-            debugPrint("CLLocationManager:swizzle beacons satisfying beaconConstraint delegate not available")
-            return
-        }
-        delegate.locationManager?(manager, didRange: beacons, satisfying: beaconConstraint)
-        debugPrint("CLLocationManager:swizzle beacons satisfying beaconConstraint")
-    }
-    
-    /**
-     Invoked when no beacons were detected that satisfy the constraint.
-     
-     @param manager Currnet location manager.
-     @param beaconConstraint Constraint of beacon.
-     @param error Give reason for not detect beacons.
-     */
-    @available(iOS 13.0, *)
-    public func locationManager(_ manager: CLLocationManager, didFailRangingFor beaconConstraint: CLBeaconIdentityConstraint, error: Error) {
-        guard let delegate = objc_getAssociatedObject(self, &AssociatedKeys.delegateState) as? CLLocationManagerDelegate else {
-            debugPrint("CLLocationManager:swizzle didFailRangingFor delegate not available")
-            return
-        }
-        delegate.locationManager?(manager, didFailRangingFor: beaconConstraint, error: error)
-        debugPrint("CLLocationManager:swizzle didFailRangingFor beaconConstraint")
     }
     
     /**
