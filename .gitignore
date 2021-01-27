@@ -6,3 +6,4 @@ PodExample/Podfile.lock
 .LSOverride
 xcuserdata/
 Carthage/
+CarthageExample/
